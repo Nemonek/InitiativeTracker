@@ -1,0 +1,48 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:InitiativeTracker.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="InitiativeTracker.Views.MainView"
+             x:DataType="vm:MainViewModel"
+			 FontSize="20">
+  <Design.DataContext>
+    <!-- This only sets the DataContext for the previewer in an IDE,
+         to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+    <vm:MainViewModel />
+  </Design.DataContext>
+	<Grid>
+		<ListBox Background="LightGray" ItemsSource="{Binding Players}">
+			<ListBox.ItemTemplate>
+				<DataTemplate>
+					<Border>
+						<Grid ColumnDefinitions="*, 80" ShowGridLines="True">
+							<StackPanel Orientation="Vertical">
+								<TextBlock VerticalAlignment="Center" Grid.Column="0" Text="{Binding Name}" />
+								<TextBlock FontSize="10" VerticalAlignment="Center" Grid.Column="0" Text="{Binding Roll}" />
+							</StackPanel>
+						</Grid>
+					</Border>
+				</DataTemplate>
+			</ListBox.ItemTemplate>
+		</ListBox>
+		
+		<!-- Popup -->
+		<Border IsVisible="{Binding IsRollValueSelectorOpen}" Background="#40000000">
+			<Border Width="280" Height="200" CornerRadius="7" Background="Red">				
+				<DockPanel Margin="5">
+					<NumericUpDown DockPanel.Dock="Top" Maximum="30" />
+					<Button Command="{Binding ConfirmSelectedRoll}" Content="Confirm" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+				</DockPanel>				
+			</Border>
+		</Border>
+
+		<Border IsVisible="{Binding IsStartButtonOpen}" Background="#40000000">
+			<Button VerticalAlignment="Center" HorizontalAlignment="Center" Background="LightBlue" Height="100" Width="230">
+				<TextBlock FontSize="30" Text="Start" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+			</Button>
+		</Border>
+		
+	</Grid>	
+</UserControl>

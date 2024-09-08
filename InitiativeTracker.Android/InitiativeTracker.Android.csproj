@@ -10,11 +10,8 @@
     <AndroidPackageFormat>apk</AndroidPackageFormat>
     <AndroidEnableProfiledAot>false</AndroidEnableProfiledAot>
   </PropertyGroup>
-
   <ItemGroup>
-    <AndroidResource Include="Icon.png">
-      <Link>Resources\drawable\Icon.png</Link>
-    </AndroidResource>
+    <None Remove="Icon.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -24,5 +21,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\InitiativeTracker\InitiativeTracker.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Resources\drawable-night-v31\" />
+    <Folder Include="Resources\drawable-v31\" />
   </ItemGroup>
 </Project>

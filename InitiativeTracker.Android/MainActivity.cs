@@ -7,9 +7,10 @@ using Avalonia.ReactiveUI;
 namespace InitiativeTracker.Android;
 
 [Activity(
-    Label = "InitiativeTracker.Android",
+    Label = "Initiative tracker",
     Theme = "@style/MyTheme.NoActionBar",
-    Icon = "@drawable/icon",
+    //Icon = "@drawable/icon",
+    Icon = "@drawable/ApplicationLogo",
     MainLauncher = true,
     ConfigurationChanges = ConfigChanges.Orientation | ConfigChanges.ScreenSize | ConfigChanges.UiMode)]
 public class MainActivity : AvaloniaMainActivity<App>

@@ -9,7 +9,6 @@ namespace InitiativeTracker.Android;
 [Activity(
     Label = "Initiative tracker",
     Theme = "@style/MyTheme.NoActionBar",
-    //Icon = "@drawable/icon",
     Icon = "@drawable/ApplicationLogo",
     MainLauncher = true,
     ConfigurationChanges = ConfigChanges.Orientation | ConfigChanges.ScreenSize | ConfigChanges.UiMode)]

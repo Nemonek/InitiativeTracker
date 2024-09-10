@@ -5,9 +5,10 @@
     <color android:color="@color/splash_background"/>
   </item>
 
+	<!-- To edit dimensions for API 30 -->
   <item android:drawable="@drawable/applicationlogo"
-        android:width="120dp"
-        android:height="120dp"
+        android:width="200dp"
+        android:height="200dp"
         android:gravity="center" />
 
 </layer-list>

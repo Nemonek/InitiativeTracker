@@ -45,8 +45,14 @@ public partial class MainViewModel : ViewModelBase
         {
             this.IsRollValueSelectorOpen = false;
         });
-        
+
+        this.StartButtonClick = ReactiveCommand.Create(() => {
+            this.IsStartButtonOpen = false;
+        });
+
+
     }
 
     public ICommand ConfirmSelectedRoll { get; }
+    public ICommand StartButtonClick { get; }
 }

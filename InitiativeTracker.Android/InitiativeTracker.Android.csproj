@@ -11,7 +11,8 @@
     <AndroidEnableProfiledAot>false</AndroidEnableProfiledAot>
   </PropertyGroup>
   <ItemGroup>
-    <None Remove="Icon.png" />
+    <None Remove="Resources\drawable\Icon.png" />
+    <None Remove="Resources\values-v31\Icon.png" />
   </ItemGroup>
 
   <ItemGroup>

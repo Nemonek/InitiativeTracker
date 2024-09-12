@@ -8,6 +8,7 @@
         x:Class="InitiativeTracker.Views.MainWindow"
         Icon="/Assets/ApplicationLogo.ico"
         Title="InitiativeTracker">
-        <views:MainView />
+	
+	<views:MainView />
 	
 </Window>

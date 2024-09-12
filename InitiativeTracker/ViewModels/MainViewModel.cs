@@ -9,15 +9,6 @@ public partial class MainViewModel : ViewModelBase
 {
     private ObservableCollection<Player> _players;
     public ObservableCollection<Player> Players { get => this._players; set => this._players = value; }
-    
-    private bool _isRollValueSelectorOpen;
-    public bool IsRollValueSelectorOpen { 
-        get => _isRollValueSelectorOpen; 
-        set
-        {
-            this.RaiseAndSetIfChanged(ref this._isRollValueSelectorOpen, value);
-        } 
-    }
 
     private bool _isStartButtonOpen;
     public bool IsStartButtonOpen
@@ -37,14 +28,10 @@ public partial class MainViewModel : ViewModelBase
             new("Krim", 17),
             new("Adrim", 15),
             new("Lilith", 12),
+            new("Zephyr", 24),
         ];
-        this._isRollValueSelectorOpen = false;
         this._isStartButtonOpen = true;
 
-        this.ConfirmSelectedRoll = ReactiveCommand.Create(() =>
-        {
-            this.IsRollValueSelectorOpen = false;
-        });
 
         this.StartButtonClick = ReactiveCommand.Create(() => {
             this.IsStartButtonOpen = false;
@@ -53,6 +40,5 @@ public partial class MainViewModel : ViewModelBase
 
     }
 
-    public ICommand ConfirmSelectedRoll { get; }
     public ICommand StartButtonClick { get; }
 }

@@ -12,41 +12,48 @@
          to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
     <vm:MainViewModel />
   </Design.DataContext>
-	<Grid RowDefinitions="*, 80">
-		<ListBox ItemsSource="{Binding Players}">
-			<ListBox.ItemTemplate>
-				<DataTemplate>
-					<Border>
-						<Grid ColumnDefinitions="*, 80" ShowGridLines="True">
-							<StackPanel Orientation="Vertical">
-								<TextBlock VerticalAlignment="Center" Grid.Column="0" Text="{Binding Name}" />
-								<TextBlock FontSize="10" VerticalAlignment="Center" Grid.Column="0" Text="{Binding Roll}" />
-							</StackPanel>
-						</Grid>
-					</Border>
-				</DataTemplate>
-			</ListBox.ItemTemplate>
-		</ListBox>
+	
+	<Grid RowDefinitions="60, *, 80">
 
-		<Button Height="50" Margin="5, 0" CornerRadius="50" Background="#666666" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Stretch">
-			<TextBlock VerticalAlignment="Center" Text="Initiate fight" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center"/>
-		</Button>
-		
-		<!-- Popup -->
-		<Border IsVisible="{Binding IsRollValueSelectorOpen}" Background="#40000000">
-			<Border Width="280" Height="200" CornerRadius="7" Background="Red">				
-				<DockPanel Margin="5">
-					<NumericUpDown DockPanel.Dock="Top" Maximum="30" />
-					<Button Command="{Binding ConfirmSelectedRoll}" Content="Confirm" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
-				</DockPanel>				
-			</Border>
+		<Border Grid.Row="0" Margin="5, 0" BorderThickness="0, 0, 0, 1" BorderBrush="Black" HorizontalAlignment="Stretch">
+			<DockPanel HorizontalAlignment="Center" Margin="0, 5">
+				<Image Source="/Assets/ApplicationLogoNobBackground.png" />
+				<StackPanel Margin="5, 0, 0, 0" VerticalAlignment="Center">
+					<TextBlock Text="Initiative tracker" FontSize="20" FontWeight="Bold"/>
+					<TextBlock Text="By Riccardo Piredda" FontSize="10"/>
+				</StackPanel>
+			</DockPanel>			
 		</Border>
 
-		<!--<Border IsVisible="{Binding IsStartButtonOpen}" Background="#40000000">
-			<Button VerticalAlignment="Center" Command="{Binding StartButtonClick}" HorizontalAlignment="Center" Background="LightBlue" Height="100" Width="230">
-				<TextBlock FontSize="30" Text="Start" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-			</Button>
-		</Border>-->
+		<ScrollViewer Grid.Row="1">
+			
+			<ItemsControl ItemsSource="{Binding Players}" Grid.Row="1">
+				<ItemsControl.ItemTemplate>
+					<DataTemplate>
+						<Border Padding="12,9,12,12">
+							<Grid ColumnDefinitions="*, 130" ShowGridLines="True">
+								<StackPanel Orientation="Vertical">
+									<TextBlock VerticalAlignment="Center" Grid.Column="0" Text="{Binding Name}" />
+									<TextBlock FontSize="10" VerticalAlignment="Center" Grid.Column="0" Text="{Binding Roll}" />
+								</StackPanel>
+								<NumericUpDown FormatString="0" Value="{Binding Roll}" Maximum="30"  Grid.Column="1"/>
+							</Grid>
+						</Border>
+					</DataTemplate>
+				</ItemsControl.ItemTemplate>
+			</ItemsControl>
+		</ScrollViewer>
+
+		<Button Height="50" Margin="5, 0" CornerRadius="50" Background="#666666" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Stretch">
+			<TextBlock VerticalAlignment="Center" Text="Initiate fight" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center"/>
+			
+			<!--<Button.Styles>
+				<Style Selector="Button:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+					<Setter Property="Background" Value="#666666" />
+				</Style>
+			</Button.Styles>-->
+		
+		</Button>
 		
 	</Grid>	
 </UserControl>

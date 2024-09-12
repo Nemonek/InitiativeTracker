@@ -9,6 +9,12 @@
   <ItemGroup>
     <AvaloniaResource Include="Assets\**" />
   </ItemGroup>
+  
+  <ItemGroup>
+    <None Remove="Assets\ApplicationLogo.png" />
+    <None Remove="Assets\ApplicationLogoNoBackgroundSvg.svg" />
+    <None Remove="Assets\ApplicationLogoNobBackground.png" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Avalonia" Version="$(AvaloniaVersion)" />
